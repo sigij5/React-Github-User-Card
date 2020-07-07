@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      userText:'sigij5',
       userInfo: {},
       following: []
     }
@@ -16,7 +17,7 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('cdm is running')
-    axios.get('https://api.github.com/users/sigij5')
+    axios.get(`https://api.github.com/users/${this.state.userText}`)
     .then(res => {
       console.log(res.data)
       this.setState({
@@ -35,12 +36,34 @@ class App extends React.Component {
     })
   }
 
+  handleChanges = e => {
+    this.setState({
+      userText: e.target.value
+    })
+  }
+
+  fetchUser = e => {
+    e.preventDefault()
+    axios.get(`https://api.github.com/users/${this.state.userText}/`)
+    .then(res => {
+      this.setState({
+        userInfo:res.data
+      })
+    })
+  }
+
   render() {
     console.log('rendering')
   return (
     <div className="App">
       <header className="App-header">
         <h1>Github User Cards</h1>
+        <input
+          type="text"
+          value={this.state.userText}
+          onChange={this.handleChanges}
+        />
+        <button onClick={this.fetchUser}>Find User</button>
       </header>
 
       <User info={this.state.userInfo} />

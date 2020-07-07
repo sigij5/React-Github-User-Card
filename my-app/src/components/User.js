@@ -6,20 +6,20 @@ class User extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            following: []
-        }
+        // this.state = {
+        //     following: []
+        // }
 
     }
 
-    componentDidMount() {
-        axios.get(`https://api.github.com/users/sigij5/following`)
-        .then(res => {
-            this.setState({
-                following: res.data
-            })
-        })
-    }
+    // componentDidMount() {
+    //     axios.get(`https://api.github.com/users/sigij5/following`)
+    //     .then(res => {
+    //         this.setState({
+    //             following: res.data
+    //         })
+    //     })
+    // }
 
     render(){
         console.log('rendering')
@@ -29,7 +29,7 @@ class User extends React.Component {
                     <img src={this.props.info.avatar_url} />
                 </div>
                 <div className='user-info'>
-                    <h2>{this.props.info.name}</h2>
+                    <h2>{this.props.info.login}</h2>
                     <p>{this.props.info.bio}</p>
                     <p>{this.props.info.location}</p>
                     <a href={this.props.info.html_url}>Github Profile</a>
