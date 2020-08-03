@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.following {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+}
+
+.App-header {
+  background-color: #282c34;
+  height:25vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-bottom: 5%;
+}
+
+input{
+  margin-bottom: 1%;
+  text-align: center;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.user-img{
+  /* border: 1px solid red; */
+  width: 50%;
+  display: flex;
+}
+
+.user-img img{
+  object-fit:fill;
+  max-width:200px;
+  max-height:200px;
+  display:flex;
+}
+
+.user-card{
+  display: flex;
+  width:50%;
+  border: 2px solid grey;
+  background-color: aquamarine;
+}
+
+.user-info{
+  display: flex;
+  flex-direction: column;
+}
